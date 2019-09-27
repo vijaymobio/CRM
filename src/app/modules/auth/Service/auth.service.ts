@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SharedEnvironment } from '../../../../environments/environment'
-import { from } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { SharedEnvironment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,14 +10,18 @@ export class AuthService {
 
   /**
    * User Login Serivce
+   *
    * @param UserValue
    * @author vijay Prajapati
    */
   login(value) {
- return this.http.post(SharedEnvironment.loginApi, value);
+    return this.http.post(SharedEnvironment.loginApi, value);
   }
+
+
   /**
    * User Register method
+   *
    * @param userDetail
    * @author Vijay Prajapati
    */

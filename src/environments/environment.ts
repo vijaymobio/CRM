@@ -5,9 +5,11 @@
 export const environment = {
   production: false
 };
+
 export const SharedEnvironment = {
   loginApi : 'https://reqres.in/api/login',
-  regApi : 'https://reqres.in/api/register'
+  regApi : 'https://reqres.in/api/register',
+  API_URL : 'https://reqres.in/api'
 };
 
 /*

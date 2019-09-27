@@ -1,24 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl, EmailValidator } from '@angular/forms';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../auth/Service/auth.service';
-import { from } from 'rxjs';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   constructor(private authService: AuthService, private fb: FormBuilder, private http: HttpClient) {}
+
   loginform: FormGroup;
   submitted = false;
-    ngOnInit() {
+
+  ngOnInit() {
+    this.formValidate();
+  }
+
+  /**
+   * Form Validate
+   * @author vijay Prajapati
+   */
+  formValidate() {
     this.loginform = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
   });
-
   }
+
   /**
    * Login user
    * @param value
@@ -36,6 +47,5 @@ export class LoginComponent implements OnInit {
     } else {
       console.log(this.loginform);
     }
-
   }
 }
