@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content='IE=edge' http-equiv=X-UA-Compatible>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MS Login Panel</title>
+    <link rel="shortcut icon" type="image/png" href="#">
+
+    <!-- Core Css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.min.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- ########## START: Login Form ########## -->
+    <section class="login-wrapper d-flex align-content-center justify-content-center p-3 flex-wrap">
+        <a href="index.html" class="w-100 text-center mb-3 mb-lg-3"><img src="../assets/image/logo.png" alt="MS Admin Panel" width="150" /></a>
+        <div class="login-form bg-white p-3 p-lg-5 rounded">
+            <div class="row">
+                <div class="col-12 col-lg-6 d-none d-lg-flex pr-lg-2">
+                    <img src="../assets/image/login-mockup.svg" alt="">
+                </div>
+                <div class="col-12 col-lg-6 pl-lg-2">
+                    <div class="pagetitle mb-4">
+                        <h2>Create Account</h2>
+                        <span>Fill the below form to create a new account.</span>
+                    </div>
+                    <form [formGroup]="registerForm">
+                        <div class="form-group mb-4">
+                            <label>Name</label>
+                            <input style="border: 1px solid lightgray;" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.name.errors }" />
+                            <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
+                            <div *ngIf="form.name.errors.required">First Name is required</div>
+                        </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Email</label>
+                            <input style="border: 1px solid lightgray;"  type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
+                            <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+                            <div *ngIf="form.email.errors.required">Email is required</div>
+                            <div *ngIf="form.email.errors.email">Email must be a valid email address</div>
+                        </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Password</label>
+                            <input style="border: 1px solid lightgray;"  type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+                            <div *ngIf="submitted && form.password.errors" class="invalid-feedback">
+                                <div *ngIf="form.password.errors.required">Password is required</div>
+                                <div *ngIf="form.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Confirm Password</label>
+                        <input style="border: 1px solid lightgray;"  type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.confirmPassword.errors }" />
+                        <div *ngIf="submitted && form.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="form.confirmPassword.errors.required">Confirm Password is required</div>
+                            <div *ngIf="form.confirmPassword.errors.mustMatch">Passwords must match</div>
+                        </div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input  style="border: 1px solid lightgray;"  type="checkbox" name="checkbox" id="check1">
+                            <label for="check1">I accept the terms & conditions.</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <a routerLink="" href="login.html" class="btn btn-outline-primary waves-effect waves-primary">Login</a>
+                            <button type="submit" (click)="onSubmit(registerForm.value)" class="btn btn-primary waves-effect waves-primary w-50">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ########## END: Login Form ########## -->
+</body>
+
+<script src="../assets/scripts/jquery.min.js"></script>
+<script src="../assets/scripts/popper.min.js"></script>
+<script src="../assets/scripts/bootstrap-slider.min.js"></script>
+<script src="../assets/scripts/bootstrap.min.js"></script>
+<script src="../assets/scripts/bootstrap.bundle.min.js"></script>
+<script src="../assets/scripts/bootstrap-select.min.js"></script>
+<script src="../assets/scripts/bootstrap-tooltip-custom-class.js"></script>
+<script src="../assets/scripts/jquery.mCustomScrollbar.js"></script>
+<script src="../assets/scripts/datatables.min.js"></script>
+<script src="../assets/scripts/ripple.min.js"></script>
+<script src="../assets/scripts/custome.js"></script>
+
+</html>

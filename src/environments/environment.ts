@@ -5,6 +5,10 @@
 export const environment = {
   production: false
 };
+export const SharedEnvironment = {
+  loginApi : 'https://reqres.in/api/login',
+  regApi : 'https://reqres.in/api/register'
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
