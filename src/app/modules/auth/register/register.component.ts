@@ -9,11 +9,28 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup;
   submitted = false;
+
   constructor(private authService: AuthService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.formValidate();
+  }
+/**
+ * Validate form
+ * @author  Vijay Prajapati
+ */
+  get form() { return this.registerForm.controls; }
+
+
+  /**
+   * Form validate
+   * @author Vijay Prajapati
+   */
+
+  formValidate() {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -22,11 +39,8 @@ export class RegisterComponent implements OnInit {
         }, {
           validator: MustMatch('password', 'confirmPassword')
       }
-
-  );
+    );
   }
-
-  get form() { return this.registerForm.controls; }
 
   /**
    * Resiter form
@@ -36,11 +50,7 @@ export class RegisterComponent implements OnInit {
    */
 
   onSubmit(value) {
-
-
     this.submitted = true;
-
-    // stop here if form is invalid
     if (this.registerForm.invalid) {
         return;
     } else {
@@ -48,8 +58,7 @@ export class RegisterComponent implements OnInit {
         console.log(res);
       },  (error: HttpErrorResponse) => {
        alert(error.error.error);
-
-    });
-}
+      });
+    }
   }
 }
