@@ -15,7 +15,7 @@
           "options": {
             "outputPath": "dist/cms",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "main": "src//bootstrap/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,

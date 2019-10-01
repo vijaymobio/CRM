@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../auth/Service/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { validateEmail } from '../../../../app/class/white-space-validator';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { AuthService } from '../../auth/Service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {}
+  constructor(private http: HttpClient,private authService: AuthService, private fb: FormBuilder) {}
 
   loginform: FormGroup;
   submitted = false;
@@ -25,8 +27,8 @@ export class LoginComponent implements OnInit {
    */
   formValidate() {
     this.loginform = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$'), Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, validateEmail]],
+      password: ['', [Validators.required, Validators.minLength(7)]],
   });
   }
 
@@ -35,12 +37,12 @@ export class LoginComponent implements OnInit {
    * @param value
    * @author Vijay Prajapati
    */
-  get form() { return this.loginform.controls; }
+  get form() {return this.loginform.controls; }
   login(value)  {
+
     this.submitted = true;
     if (this.loginform.valid) {
       this.authService.login(value).subscribe(res => {
-        console.log(res);
       },  (error: HttpErrorResponse) => {
         alert(error.error.error);
     });
