@@ -2,23 +2,22 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from '../auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from '../auth/register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ForgotComponent } from './forgot/forgot.component';
+import { AuthService as AuthGuard} from '../auth/Service/auth.service';
+
 const routes: Routes = [{
   path : '',
   children : [
-    { path: '', component: LoginComponent},
-    { path: 'reg', component: RegisterComponent},
-    { path: 'forgot', component: ForgotComponent}
+    { path: '', component: LoginComponent ,canActivate: [AuthGuard]},
+    { path: 'forgot', component: ForgotComponent ,canActivate: [AuthGuard]}
   ]
 }];
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
     ForgotComponent
   ],
   imports: [
@@ -30,4 +29,5 @@ const routes: Routes = [{
   ],
   providers: []
 })
+
 export class AuthModule { }

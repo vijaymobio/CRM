@@ -1,0 +1,19 @@
+
+
+<!-- CRM Dashboard -->
+<div *ngIf="userActive">
+  <app-header></app-header>
+</div>
+<!-- This part active when user login -->
+<section  *ngIf="userActive" [ngClass]="{mainpanel: userActive}">
+  <app-alert></app-alert>
+  <router-outlet></router-outlet>
+</section>
+
+<!-- This part active when user not login -->
+<div *ngIf="!userActive">
+  <router-outlet></router-outlet>
+</div>
+
+
+
