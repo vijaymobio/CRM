@@ -7,6 +7,7 @@
 <!-- This part active when user login -->
 <section  *ngIf="userActive" [ngClass]="{mainpanel: userActive}">
   <app-alert></app-alert>
+  <app-shared-table  [data]="data"></app-shared-table>
   <router-outlet></router-outlet>
 </section>
 

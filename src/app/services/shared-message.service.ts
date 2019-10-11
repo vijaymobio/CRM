@@ -8,7 +8,6 @@ export class SharedMessageService {
     private subject = new Subject<any>();
 
     sendMessage(severity: string, summary: string, detail: string) {
-      console.log(severity, summary, detail);
       this.subject.next({ severity, summary, detail });
     }
 

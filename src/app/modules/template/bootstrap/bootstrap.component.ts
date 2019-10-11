@@ -14,6 +14,17 @@ export class BootstrapComponent implements OnInit {
 
   userActive = false;
   title = 'CRM';
+  data = [{
+    id: 1,
+    name: 'VIJAY'
+  },
+  {
+    id: 2,
+    name: 'VIJAY'
+  }, {
+    id: 3,
+    name: 'VIJAY'
+  }];
 
   constructor( private router: Router, private messageService: SharedMessageService) {}
 
@@ -37,7 +48,6 @@ export class BootstrapComponent implements OnInit {
   }
 
   sendMessage(severity: string , summary: string, detail: string): void {
-    console.log('yes called');
     this.messageService.sendMessage(severity,summary,detail);
 }
 

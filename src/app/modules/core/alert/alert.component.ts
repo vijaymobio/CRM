@@ -18,14 +18,11 @@ export class AlertComponent implements OnInit {
   constructor(private messageService : SharedMessageService) {
     this.subscription = this.messageService.getMessage().subscribe(message => {
       this.message = message;
-      console.log(message);
-
       this.showMsg(message.severity,message.summary,message.detail);
      });
    }
 
   ngOnInit() {
-    // this.showMsg('success','dsdsdsf','sfsfsf');
   }
 
 
@@ -33,25 +30,25 @@ export class AlertComponent implements OnInit {
     switch(severity) {
       case 'success':
         this.msgs = [];
-        this.msgs.push({severity: 'success', summary: summary, detail: detail});
+        this.msgs.push({severity, summary, detail});
         break;
       case 'info':
         this.msgs = [];
-        this.msgs.push({severity:'info',  summary: summary, detail: detail});
+        this.msgs.push({severity, summary, detail});
         break;
       case 'warn':
         this.msgs = [];
-        this.msgs.push({severity:'warn',  summary: summary, detail: detail});
+        this.msgs.push({severity, summary, detail});
         break;
       case 'error':
         this.msgs = [];
-        this.msgs.push({severity:'error',  summary: summary, detail: detail});
+        this.msgs.push({severity, summary, detail});
         break;
       default:
           this.msgs = [];
-          this.msgs.push({severity:'info', summary: summary, detail: detail});
+          this.msgs.push({severity, summary, detail});
     }
-  }
+    }
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks

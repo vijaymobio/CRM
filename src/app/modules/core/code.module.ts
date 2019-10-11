@@ -5,12 +5,14 @@ import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SharedTableComponent } from './shared-table/shared-table.component';
 
 @NgModule({
   declarations: [
-    AlertComponent
+    AlertComponent,
+    SharedTableComponent
   ],
-  exports: [AlertComponent],
+  exports: [AlertComponent,SharedTableComponent],
   imports: [MessagesModule,BrowserAnimationsModule ,BrowserModule,ToastModule, MessageModule],
   providers: []
 })
