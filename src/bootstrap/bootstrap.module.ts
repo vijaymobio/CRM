@@ -10,8 +10,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BasicAuthHtppInterceptorService } from '../app/class/token.interceptor';
 import { AlertModule} from '../app/modules/core/code.module';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
-
+import {MaterialModule  } from '../environments/material.module';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HttpClientModule,
     MatProgressBarModule,
     TemplateModule,
-    AlertModule
+    AlertModule,
+    MaterialModule
   ],
-  providers: [
+  providers: [CookieService,
     {
       provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorService, multi: true
     }

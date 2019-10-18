@@ -10,10 +10,7 @@ import { Router} from '@angular/router';
 export class AuthenticationService implements  CanActivate {
   cookieStorage: any;
 
-  constructor(
-    private router: Router,
-    private httpClient: HttpClient
-  ) {
+  constructor() {
   }
 
 /**
@@ -24,9 +21,9 @@ export class AuthenticationService implements  CanActivate {
  */
 
   authenticate(email, password) {
-    sessionStorage.setItem('email', email);
-    const authString = 'Basic ' + btoa(email + ':' + password);
-    sessionStorage.setItem('basicauth', authString);
+    // sessionStorage.setItem('email', email);
+    // const authString = 'Basic ' + btoa(email + ':' + password);
+    // sessionStorage.setItem('basicauth', authString);
   }
 
  /**
@@ -49,8 +46,9 @@ export class AuthenticationService implements  CanActivate {
  * @author Vijay Prajapati
  */
   logOut() {
-    sessionStorage.removeItem('email');
-    sessionStorage.removeItem('basicauth');
+
+    // sessionStorage.removeItem('email');
+    // sessionStorage.removeItem('basicauth');
     // this.router.navigate(['']);
     window.location.href = SharedEnvironment.localUrl;
   }

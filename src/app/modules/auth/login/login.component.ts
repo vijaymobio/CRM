@@ -7,6 +7,7 @@ import {  AuthenticationService } from '.././../../services/storage.service';
 import { Router} from '@angular/router';
 import { SharedEnvironment } from 'src/environments/environment';
 import { SharedMessageService } from '../../../services/shared-message.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: max-line-length
   constructor(
+    private cookieService: CookieService,
     private messageService: SharedMessageService,
     private router: Router,
     private storgaeService: AuthenticationService,
@@ -55,11 +57,12 @@ export class LoginComponent implements OnInit {
     this.storgaeService.authenticate(value2.email, value2.password);
     this.submitted = true;
     if (this.loginform.valid) {
-      this.authService.login(value2).subscribe(res => {
-      if(res){
-        this.sendMessage('success', 'Vijay Prajapati', 'Successfully Login');
-
-
+      this.authService.login(value2).subscribe((res: any) => {
+      if (res) {
+        // this.messageService.snakBar('Welcome Vijay Prajapati' , 'Done');
+        // this.sendMessage('success', 'Vijay Prajapati', 'Successfully Login');
+        this.cookieService.set( 'token', JSON.stringify(res) );
+        window.location.href = SharedEnvironment.localUrl + 'dashboard';
       }
 
       },  (error: HttpErrorResponse) => {
@@ -70,10 +73,8 @@ export class LoginComponent implements OnInit {
     }
   }
   sendMessage(abc: string , pqr: string, aws: string): void {
-    console.log('yess called');
-
     // send message to subscribers via observable subject
     this.messageService.sendMessage(abc,pqr,aws);
-    window.location.href = SharedEnvironment.localUrl + 'dashboard';
+    // window.location.href = SharedEnvironment.localUrl + 'dashboard';
 }
 }

@@ -10,19 +10,22 @@ import { Subscription } from 'rxjs';
 export class AlertComponent implements OnInit {
 
   msgs: Message[] = [];
-
   message: any = {};
   subscription: Subscription;
 
 
   constructor(private messageService : SharedMessageService) {
+
+   }
+
+  ngOnInit() {
+    this.getMessage();
+  }
+  getMessage(){
     this.subscription = this.messageService.getMessage().subscribe(message => {
       this.message = message;
       this.showMsg(message.severity,message.summary,message.detail);
      });
-   }
-
-  ngOnInit() {
   }
 
 
@@ -52,6 +55,7 @@ export class AlertComponent implements OnInit {
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
+    this.msgs = [];
     this.subscription.unsubscribe();
 }
 }

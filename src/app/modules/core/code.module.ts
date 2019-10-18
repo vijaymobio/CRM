@@ -6,6 +6,7 @@ import {ToastModule} from 'primeng/toast';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SharedTableComponent } from './shared-table/shared-table.component';
+import { MaterialModule } from '../../../environments/material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { SharedTableComponent } from './shared-table/shared-table.component';
     SharedTableComponent
   ],
   exports: [AlertComponent,SharedTableComponent],
-  imports: [MessagesModule,BrowserAnimationsModule ,BrowserModule,ToastModule, MessageModule],
+  imports: [MessagesModule,MaterialModule,BrowserAnimationsModule ,BrowserModule,ToastModule, MessageModule],
   providers: []
 })
 

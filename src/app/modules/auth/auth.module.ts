@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ForgotComponent } from './forgot/forgot.component';
 import { AuthService as AuthGuard} from '../auth/Service/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 const routes: Routes = [{
   path : '',
@@ -27,7 +28,7 @@ const routes: Routes = [{
     HttpClientModule,
     CommonModule
   ],
-  providers: []
+  providers: [CookieService]
 })
 
 export class AuthModule { }

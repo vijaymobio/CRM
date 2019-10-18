@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from '../../../services/storage.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,12 +9,13 @@ import { AuthenticationService } from '../../../services/storage.service';
 export class HeaderComponent implements OnInit {
 
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private cookieService: CookieService ,private auth: AuthenticationService) { }
 
   ngOnInit() {
   }
 
   logout() {
     this.auth.logOut();
+    this.cookieService.delete('token');
     }
 }
