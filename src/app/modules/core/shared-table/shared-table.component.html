@@ -26,12 +26,14 @@
       mat-cell
       *matCellDef="let element"
       [innerHTML]="element[column]"
-      (click)="tableHeader[i][column]['download'] == 'YES' && download(element['downloadinvoiceurl'])"
+      (click)="tableHeader[i][column]['delete'] == 'YES' && delete(element.id)"
+      (click)="tableHeader[i][column]['edit'] == 'YES' && edit(element.id)"
       [ngClass]="{
-        link: tableHeader[i][column]['download'] == 'YES' || tableHeader[i][column]['addClass'] == 'YES',
+        link: tableHeader[i][column]['delete'] == 'YES' || tableHeader[i][column]['addClass'] == 'YES',
         'word-break-all': tableHeader[i][column]['addClass'] == 'YES'
       }"
     ></td>
+
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
