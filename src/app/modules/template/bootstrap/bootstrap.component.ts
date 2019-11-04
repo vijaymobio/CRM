@@ -2,8 +2,7 @@ import { Component , OnInit} from '@angular/core';
 import { Router} from '@angular/router';
 import { SharedMessageService } from '../../../services/shared-message.service';
 import { CookieService } from 'ngx-cookie-service';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Sort } from '@angular/material';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './bootstrap.html',
@@ -11,21 +10,15 @@ import { Sort } from '@angular/material';
 })
 
 export class BootstrapComponent implements OnInit {
-  historyArticleData: any[];
-  historyTableHeader: any[];
-  data: any[];
-  totalPageSize: number;
 
+  userDetails: any[];
+  tableHeader: any[];
+  data: any[];
   displayedColumns: any[];
   filterData: any;
   columnsToDisplay: any[];
-  carouselArticleData: any[];
   show = false;
-  pageindex: any;
-  onFilter = false;
   filterForm: FormGroup;
-
-
   userActive = false;
   title = 'CRM';
 
@@ -65,7 +58,7 @@ this.Service.clearMessage();
 
 getUserDetails() {
   this.Service.getuserDetails().subscribe((res: any) => {
-    this.historyArticleData = res.data.map(value=> {
+    this.userDetails = res.data.map(value=> {
       return {
         id: value.id,
         email: value.email,
@@ -77,7 +70,7 @@ getUserDetails() {
         };
       });
        // tslint:disable-next-line: align
-    this.historyTableHeader =
+    this.tableHeader =
      [
       {
         id: {
@@ -155,40 +148,15 @@ getUserDetails() {
       }
     ]
     ;
-    if (this.historyArticleData.length > 1) {
-        this.displayedColumns = Object.keys(this.historyArticleData[0]);
+    if (this.userDetails.length > 1) {
+        this.displayedColumns = Object.keys(this.userDetails[0]);
       } else {
         this.displayedColumns = ['id', 'email', 'FirstName', 'LastName', 'avtar'];
       }
     this.columnsToDisplay = this.displayedColumns.slice(0, 7);
-    this.data = this.historyArticleData;
+    this.data = this.userDetails;
     });
 
   }
 
-    /**
-     * @param sort Sort table
-     * @author Vijay Prajapati
-     */
-
-    public sortColumn(sort: Sort) {
-      const data = this.data.slice();
-      if (!sort.active || sort.direction === '') {
-        this.data = data;
-        return;
-      }
-
-      this.data = data.sort((a, b) => {
-        const isAsc = sort.direction === 'asc';
-        switch (sort.active) {
-          case 'id': return this.compare(a.id, b.id, isAsc);
-          case 'first_name': return  this.compare(a.first_name, b.first_name, isAsc);
-          case 'last_name': return this.compare(a.last_name, b.last_name, isAsc);
-          default: return 0;
-        }
-      });
-    }
-    compare(a: number | string, b: number | string, isAsc: boolean) {
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-    }
 }

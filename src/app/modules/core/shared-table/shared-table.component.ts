@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {  Output, EventEmitter } from '@angular/core';
 import { Sort } from '@angular/material';
+
 @Component({
   selector: 'app-shared-table',
   templateUrl: './shared-table.component.html',
@@ -14,21 +15,11 @@ export class SharedTableComponent implements OnInit {
   @Input() tableHeader: any;
   @Input() displayedColumns: any;
   @Input() data: any;
-  @Output() openModal = new EventEmitter();
   @Output() sortTable = new EventEmitter();
-  @Output() downloadreport = new EventEmitter();
 
-
-  constructor() {
-
-   }
+  constructor() {}
 
   ngOnInit() {}
-
-
-  // public sortColumn(sort: Sort) {
-  //   this.sortTable.emit(sort);
-  // }
 
     /**
      *
@@ -52,6 +43,13 @@ export class SharedTableComponent implements OnInit {
         }
       });
     }
+    /**
+     * Compare asc and desc order
+     * @param a
+     * @param b
+     * @param isAsc
+     * @au Vijay Prajapati
+     */
     compare(a: number | string, b: number | string, isAsc: boolean) {
       return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
     }
@@ -72,8 +70,7 @@ export class SharedTableComponent implements OnInit {
    * @author Vijay Prajapati
    */
 
-  edit(id){
+  edit(id) {
     console.log(id);
-
   }
 }

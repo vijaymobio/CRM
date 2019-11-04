@@ -12,6 +12,7 @@ import { AlertModule} from '../app/modules/core/code.module';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MaterialModule  } from '../environments/material.module';
 import { CookieService } from 'ngx-cookie-service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CookieService } from 'ngx-cookie-service';
     MatProgressBarModule,
     TemplateModule,
     AlertModule,
-    MaterialModule
+    MaterialModule,
+    MatSnackBarModule
   ],
   providers: [CookieService,
     {
