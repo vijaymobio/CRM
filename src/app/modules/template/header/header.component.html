@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content='IE=edge' http-equiv=X-UA-Compatible>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MS Admin Panel</title>
+    <link rel="shortcut icon" type="image/png" href="#">
+
+    <!-- Core Css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-slider.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.min.css">
+</head>
+
+<body>
+
+    <header class="header fixed-top d-flex align-items-center">
+        <!-- ########## START: HEAD PANEL ########## -->
+        <div class="br-header d-flex w-100">
+            <a id="add-menu" class="la la-navicon d-flex d-xl-none align-items-center justify-content-center"></a>
+            <div class="br-header-left">
+                <a href="javascript:;" class="searchbar-toggle la la-search d-flex d-md-none"></a>
+                <form class="searchbar d-flex align-items-center pl-3">
+                    <i class="material-icons">
+                        search
+                        </i>
+                    <input class="form-control border-0 pl-2" type="search" placeholder="Search...">
+                </form>
+            </div>
+            <!-- br-header-left -->
+            <div class="br-header-right ml-auto">
+                <nav class="nav">
+                    <div class="dropdown">
+                        <a href="" class="nav-link position-relative dropdown-toggle waves-effect waves-primary" id="dropdownMSG" data-toggle="dropdown">
+
+                            <i class="material-icons">
+                              message
+                              </i>
+                            <span class="badge badge-accent">2</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-header py-0" aria-labelledby="dropdownMSG">
+                            <div class="dropdown-menu-label">
+                                <label class="mb-0">Messages</label>
+                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-primary">View
+									all</button>
+                            </div>
+                            <!-- d-flex -->
+                            <div class="dropdown-divider my-0"></div>
+                            <div class="media-list">
+                                <!-- loop starts here -->
+                                <a href="" class="media-list-link">
+                                    <div class="media d-flex align-items-center py-2 px-2">
+                                        <img src="../assets/image/img1.jpg" width="50" class="rounded-circle" alt="">
+                                        <div class="media-body pl-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                                <strong>Donna Seay</strong>
+                                                <span>2 minutes ago</span>
+                                            </div>
+                                            <!-- d-flex -->
+                                            <p class="mb-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
+                                        </div>
+                                    </div>
+                                    <!-- media -->
+                                </a>
+                                <!-- loop ends here -->
+                                <!-- loop starts here -->
+                                <a href="" class="media-list-link">
+                                    <div class="media d-flex align-items-center py-2 px-2">
+                                        <img src="../assets/image/img1.jpg" width="50" class="rounded-circle" alt="">
+                                        <div class="media-body pl-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                                <strong>Donna Seay</strong>
+                                                <span>2 minutes ago</span>
+                                            </div>
+                                            <!-- d-flex -->
+                                            <p class="mb-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
+                                        </div>
+                                    </div>
+                                    <!-- media -->
+                                </a>
+                                <!-- loop ends here -->
+                                <!-- loop starts here -->
+                                <a href="" class="media-list-link">
+                                    <div class="media d-flex align-items-center py-2 px-2">
+                                        <img src="../assets/image/img1.jpg" width="50" class="rounded-circle" alt="">
+                                        <div class="media-body pl-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                                <strong>Donna Seay</strong>
+                                                <span>2 minutes ago</span>
+                                            </div>
+                                            <!-- d-flex -->
+                                            <p class="mb-0">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
+                                        </div>
+                                    </div>
+                                    <!-- media -->
+                                </a>
+                                <!-- loop ends here -->
+                            </div>
+                            <!-- media-list -->
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <a href="" class="nav-link position-relative dropdown-toggle waves-effect waves-primary" id="dropdownNOTY" data-toggle="dropdown">
+                          <i class="material-icons">
+                            notification_important
+                            </i>
+                            <span class="badge badge-accent ">1</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-header py-0" aria-labelledby="dropdownNOTY">
+                            <div class="dropdown-menu-label">
+                                <label class="mb-0">NOTIFICATIONS </label>
+                                <button type="button" class="btn btn-primary btn-sm waves-effect waves-light">View
+									all</button>
+                            </div>
+                            <!-- d-flex -->
+                            <div class="dropdown-divider my-0"></div>
+                            <div class="media-list">
+                                <!-- loop starts here -->
+                                <a href="" class="media-list-link">
+                                    <div class="media d-flex align-items-center py-2 px-2">
+                                        <img src="../assets/image/img1.jpg" width="50" class="rounded-circle" alt="">
+                                        <div class="media-body pl-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <strong>Donna Seay</strong>
+                                            </div>
+                                            <!-- d-flex -->
+                                            <p class="mb-0">A wonderful serenity has taken possession of </p>
+                                        </div>
+                                    </div>
+                                    <!-- media -->
+                                </a>
+                                <!-- loop ends here -->
+                                <!-- loop starts here -->
+                                <a href="" class="media-list-link">
+                                    <div class="media d-flex align-items-center py-2 px-2">
+                                        <img src="../assets/image/img1.jpg" width="50" class="rounded-circle" alt="">
+                                        <div class="media-body pl-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <strong>Jaymin Modi</strong>
+                                            </div>
+                                            <!-- d-flex -->
+                                            <p class="mb-0">A wonderful serenity has taken possession of my entire.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- media -->
+                                </a>
+                                <!-- loop ends here -->
+                                <!-- loop starts here -->
+                                <a href="" class="media-list-link">
+                                    <div class="media d-flex align-items-center py-2 px-2">
+                                        <img src="../assets/image/img1.jpg" width="50" class="rounded-circle" alt="">
+                                        <div class="media-body pl-3">
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <strong>Zahir Patel</strong>
+                                            </div>
+                                            <!-- d-flex -->
+                                            <p class="mb-0">A wonderful serenity has taken possession.</p>
+                                        </div>
+                                    </div>
+                                    <!-- media -->
+                                </a>
+                                <!-- loop ends here -->
+                            </div>
+                            <!-- media-list -->
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <a href="" class="nav-link-profile d-flex dropdown-toggle" data-toggle="dropdown" id="dropdownprofile">
+                            <img src="../assets/image/img3.jpg" class="rounded" alt="" width="50">
+                            <span class="logged-name px-3">Zahir Patel <br><small class="pt-3">Founder</small></span>
+                            <i class="material-icons">
+                                assignment_ind
+                                </i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-header dropdown-menu-user" aria-labelledby="dropdownprofile">
+                            <div class="text-center">
+                                <a href=""><img src="../assets/image/img3.jpg" width="80" class="rounded-circle" alt=""></a>
+                                <h6 class="logged-fullname font-weight-bold mt-2">Zahir Patel</h6>
+                                <p class="my-0">youremail@domain.com</p>
+                            </div>
+                            <hr>
+                            <ul class="list-unstyled user-profile-nav">
+                                <li><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-user"></i>
+										Edit Profile</a></li>
+                                <li><a href="javascript:;" class=" waves-effect waves-light"><i class="la la-cog"></i>
+										Settings</a></li>
+                                <li><a href="javascript:;" class=" waves-effect waves-light"><i
+											class="la la-download"></i> Downloads</a></li>
+                                <li><a href="javascript:;" class=" waves-effect waves-light"><i
+											class="la la-star-o"></i> Favorites</a></li>
+                                <li  (click)="resetPassword()"><a  class=" waves-effect waves-light"><i class="la la-file"></i>
+										Reset-Password</a></li>
+                                <li><a (click)="logout()" href="javascript:;" class=" waves-effect waves-light"><i
+											class="la la-power-off"></i> Sign Out</a></li>
+                            </ul>
+                        </div>
+                        <!-- dropdown-menu -->
+                    </div>
+                    <!-- dropdown -->
+                </nav>
+            </div>
+            <!-- br-header-right -->
+        </div>
+        <!-- br-header -->
+        <!-- ########## END: HEAD PANEL ########## -->
+        <div class="br-sideleft">
+          <a id="remove-menu" class="la la-close d-xl-none"></a>
+          <div class="br-logo d-flex justify-content-center align-items-center">
+              <a ><img src="../assets/image/logo.png" alt="MS Admin Panel" width="80" /></a>
+          </div>
+          <ul class="custom-scroll">
+              <li class="active"><a  class="waves-effect waves-primary">
+                <i class="material-icons">
+                dashboard</i>Dashboard</a></li>
+              <li><a  class="waves-effect waves-primary"><i class="material-icons">
+                  file_copy
+                  </i>Elements</a></li>
+              <!-- <li><a href="javascript:;" class="waves-effect waves-primary"><i
+                          class="la la-bullhorn"></i>Campaign</a></li> -->
+              <li class="dropdown-sub-menu">
+                  <a href="javascript:;" class="waves-effect waves-primary"><i class="material-icons">
+                      supervisor_account
+                      </i>Customers</a>
+                  <!-- <ul class="sub-menu">
+                          <li><a href="javascript:;"><i class="la la-users"></i>New Customers</a></li>
+                          <li><a href="javascript:;"><i class="la la-users"></i>Old Customers</a></li>
+                      </ul> -->
+              </li>
+              <li><a href="javascript:;" class="waves-effect waves-primary"><i class="material-icons">
+                  shopping_cart
+                  </i>Orders</a></li>
+              <li><a href="javascript:;" class="waves-effect waves-primary"><i class="material-icons">
+                  message
+                  </i>Messages</a></li>
+              <li><a href="javascript:;" class="waves-effect waves-primary"><i class="material-icons">
+                  payment
+                  </i>Payments</a>
+              </li>
+              <li><a href="javascript:;" class="waves-effect waves-primary"><i class="material-icons">
+                  perm_media
+                  </i>Media
+                          Manager</a></li>
+              <li><a href="javascript:;" class="waves-effect waves-primary"><i class="material-icons">
+                  settings_applications
+                  </i>Settings</a>
+              </li>
+            </ul>
+            </div>
+    </header>
+    <!-- Body part -->
+    <!-- <section class="mainpanel">
+      vijay
+    </section> -->
+</body>
+
+<script src="../assets/scripts/jquery.min.js"></script>
+<script src="../assets/scripts/popper.min.js"></script>
+<script src="../assets/scripts/bootstrap-slider.min.js"></script>
+<script src="../assets/scripts/bootstrap.min.js"></script>
+<script src="../assets/scripts/bootstrap.bundle.min.js"></script>
+<script src="../assets/scripts/bootstrap-select.min.js"></script>
+<script src="../assets/scripts/bootstrap-tooltip-custom-class.js"></script>
+<script src="../assets/scripts/jquery.mCustomScrollbar.js"></script>
+<script src="../assets/scripts/Chart.min.js"></script>
+<script src="../assets/scripts/dashboard.js"></script>
+<script src="../assets/scripts/datatables.min.js"></script>
+<script src="../assets/scripts/ripple.min.js"></script>
+<script src="../assets/scripts/custome.js"></script>
+
+</html>

@@ -44,10 +44,10 @@
                         <div class="form-group mb-4">
                             <label>Email</label>
                             <div class="input-group border border-light">
-                                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
+                                <input pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
                                 <div *ngIf="submitted && form.email.errors " class="invalid-feedback">
                                 <div *ngIf="form.email.errors.required">Email is required</div>
-                                <div *ngIf="form.email.errors.email">Email must be a valid email address</div>
+                                <div *ngIf="form.email.errors.email || form.email.errors.pattern">Email must be a valid email address</div>
                             </div>
                             </div>
                         </div>
